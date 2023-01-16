@@ -1,17 +1,20 @@
 syntax = "proto3";
 
-package offer;
+package application;
 
-service OfferService {
+service ApplicationService {
   rpc add (AddRequest) returns (AddResponse) {}
   rpc get (GetRequest) returns (GetResponse) {}
-  rpc search (SearchRequest) returns (SearchResponse) {}
   rpc list (ListRequest) returns (ListResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
-  rpc verify (VerifyRequest) returns (VerifyResponse) {}
   rpc update (updateRequest) returns (updateResponse) {}
 }
-
+//enum 
+enum stateEnum{
+       0 = "Pending";
+       1 = "Accepted";
+       2 = "Rejected";
+   }
 // Create application
 
 message AddRequest {
@@ -31,7 +34,7 @@ message GetData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool state = 4;
+  stateEnum state = 4;
 }
 
 message GetRequest {
@@ -53,12 +56,12 @@ message ListData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool state = 4;
+  stateEnum state = 4;
 }
 message Criteria {
   int32 id = 1;
   int32 offerId = 2;
-  bool state = 3;
+  stateEnum state = 3;
 }
 message ListRequest {
   Critria criteria= 1;
@@ -89,14 +92,14 @@ message updateData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool state = 4;
+  stateEnum state = 4;
 }
 
 message updateRequest {
   int32 id = 1;
   int32 offerId = 2;
   string userId = 3;
-  bool state = 4;
+  stateEnum state = 4;
 }
 
 message updateResponse {
