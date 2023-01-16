@@ -4,7 +4,7 @@ package offer;
 
 service OfferService {
   rpc add (AddRequest) returns (AddResponse) {}
-  rpc get (GetRequest) returns (GetResponse) {}
+  rpc getById (GetRequest) returns (GetResponse) {}
   rpc search (SearchRequest) returns (SearchResponse) {}
   rpc list (ListRequest) returns (ListResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
