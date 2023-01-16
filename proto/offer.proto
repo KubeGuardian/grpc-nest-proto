@@ -8,7 +8,6 @@ service OfferService {
   rpc search (SearchRequest) returns (SearchResponse) {}
   rpc list (ListRequest) returns (ListResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
-  rpc verify (VerifyRequest) returns (VerifyResponse) {}
   rpc update (updateRequest) returns (updateResponse) {}
 }
 
