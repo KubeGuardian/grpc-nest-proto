@@ -1,18 +1,18 @@
 syntax = "proto3";
 
-package order;
+package application;
 
-service OrderService {
-  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse) {}
+service ApplicationService {
+  rpc CreateApplication (CreateApplicationRequest) returns (CreateApplicationResponse) {}
 }
 
-message CreateOrderRequest {
-  int32 productId = 1;
-  int32 quantity = 2;
-  int32 userId = 3;
+message CreateApplicationRequest {
+  int32 offerId = 1;
+ // int32 quantity = 2;
+  int32 userId = 2;
 }
 
-message CreateOrderResponse {
+message CreateApplicationResponse {
   int32 status = 1;
   repeated string error = 2;
   int32 id = 3;
