@@ -11,9 +11,9 @@ service ApplicationService {
 }
 //enum 
 enum stateEnum{
-       0 = "Pending";
-       1 = "Accepted";
-       2 = "Rejected";
+      PENDING = 0;
+      ACCEPTED = 1;
+      REJECTED= 2;
    }
 // Create application
 
