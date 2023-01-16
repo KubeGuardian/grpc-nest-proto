@@ -10,9 +10,9 @@ service AuthService {
 
 // Register
 enum roleEnum{
-       PENDING = 1;
-       ACCEPTED = 2;
-       REJECTED = 3;
+       PENDING = 0;
+       ACCEPTED = 1;
+       REJECTED = 2;
    }
    
 message RegisterRequest {
