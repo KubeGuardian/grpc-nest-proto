@@ -9,15 +9,16 @@ service OfferService {
   rpc list (ListRequest) returns (ListResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
   rpc verify (VerifyRequest) returns (VerifyResponse) {}
+  rpc update (updateRequest) returns (updateResponse) {}
 }
 
 // Create Offer
 
 message AddRequest {
-  string name = 1;
-  string sku = 2;
-  int32 stock = 3;
-  double price = 4;
+  int32 idEnt = 1;
+  string topic = 2;
+  string description = 3;
+  bool availability = 4;
 }
 
 message AddResponse {
@@ -30,9 +31,10 @@ message AddResponse {
 
 message GetData {
   int32 id = 1;
-  string name = 2;
-  string sku = 3;
-  double price = 5;
+  int32 idEnt = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
 }
 
 message GetRequest {
@@ -49,13 +51,14 @@ message GetResponse {
 
 message SearchData {
   int32 id = 1;
-  string name = 2;
-  string sku = 3;
-  double price = 5;
+  int32 idEnt = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
 }
 
 message SearchRequest {
-  int32 id = 1;
+  int32 idEnt = 1;
 }
 
 message SearchResponse {
@@ -68,18 +71,19 @@ message SearchResponse {
 
 message ListData {
   int32 id = 1;
-  string name = 2;
-  string sku = 3;
-  double price = 5;
+  int32 idEnt = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
 }
 
 message ListRequest {
 }
 
-message GetResponse {
+message ListResponse {
   int32 status = 1;
   repeated string error = 2;
-  ListData data = 3;
+  repeated ListData data = 3;
 }
 
 //Remove
@@ -103,5 +107,30 @@ message VerifyRequest {
 message VerifyResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  bool verification = 3;
 }
+
+// update 
+
+message updateData {
+  int32 id = 1;
+  int32 idEnt = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
+}
+
+message updateRequest {
+  int32 id = 1;
+}
+
+message updateResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  updateData data = 3;
+}
+
+
+
+
+
