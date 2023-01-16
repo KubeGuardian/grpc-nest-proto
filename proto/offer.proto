@@ -63,7 +63,7 @@ message SearchRequest {
 message SearchResponse {
   int32 status = 1;
   repeated string error = 2;
-  SearchData data = 3;
+  repeated SearchData data = 3;
 }
 
 // List
