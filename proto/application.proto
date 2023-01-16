@@ -63,7 +63,7 @@ message searchRequest {
   optional int32 idApp = 1;
   optional int32 idOffer = 2;
   optional stateEnum state = 3;
-  required int32 idUser = 4;
+  int32 idUser = 4;
 }
 
 message searchResponse {

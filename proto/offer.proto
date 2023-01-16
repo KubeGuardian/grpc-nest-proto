@@ -108,7 +108,7 @@ message updateData {
 }
 
 message updateRequest {
-  required int32 idOffer = 1;
+  int32 idOffer = 1;
   optional int32 idUser = 2;
   optional string topic = 3;
   optional string description = 4;
