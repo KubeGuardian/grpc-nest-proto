@@ -10,9 +10,8 @@ service AuthService {
 
 // Register
 enum roleEnum{
-       PENDING = 0;
-       ACCEPTED = 1;
-       REJECTED = 2;
+       EMPLOYER = 0;
+       STUDENT = 1;
    }
    
 message RegisterRequest {
@@ -50,6 +49,6 @@ message ValidateRequest {
 message ValidateResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 userId = 3;
+  int32 idUser = 3;
   string role = 4;
 }

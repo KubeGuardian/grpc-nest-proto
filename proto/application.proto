@@ -18,28 +18,28 @@ enum stateEnum{
 // Create application
 
 message AddRequest {
-  string offerId = 2;
-  string userId = 3;
+  int idOffer = 1;
+  int idUser = 2;
 }
 
 message AddResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  int32 idApp = 3;
 }
 
 // Get by application id 
 
 message GetData {
-  int32 id = 1;
-  int32 offerId = 2;
-  int32 userId = 3;
+  int32 idApp = 1;
+  int32 idOffer = 2;
+  int32 idUser = 3;
   stateEnum state = 4;
 }
 
 message GetRequest {
-  int32 id = 1;
-  int32 userId = 2;
+  int32 idApp = 1;
+  int32 idUser = 2;
 
 }
 
@@ -50,25 +50,23 @@ message GetResponse {
 }
 
 
-// LIST
+// search
 
-message ListData {
-  int32 id = 1;
-  int32 offerId = 2;
-  int32 userId = 3;
+message searchData {
+  int32 idApp = 1;
+  int32 idOffer = 2;
+  int32 idUser = 3;
   stateEnum state = 4;
 }
-message Criteria {
-  int32 id = 1;
-  int32 offerId = 2;
-  stateEnum state = 3;
-}
-message ListRequest {
-  Criteria criteria= 1;
-  int32 userId = 2;
+
+message searchRequest {
+  optional int32 idApp = 1;
+  optional int32 idOffer = 2;
+  optional stateEnum state = 3;
+  required int32 idUser = 4;
 }
 
-message ListResponse {
+message searchResponse {
   int32 status = 1;
   repeated string error = 2;
   repeated ListData data = 3;
@@ -77,28 +75,28 @@ message ListResponse {
 //Remove
 
 message RemoveRequest {
-  int32 id = 1;
+  int32 idUser = 1;
 }
 
 message RemoveResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  int32 idApp = 3;
 }
 
 // update 
 
 message updateData {
-  int32 id = 1;
-  int32 offerId = 2;
-  int32 userId = 3;
+  int32 idApp = 1;
+  int32 idOffer = 2;
+  int32 idUser = 3;
   stateEnum state = 4;
 }
 
 message updateRequest {
-  int32 id = 1;
-  int32 offerId = 2;
-  string userId = 3;
+  int32 idApp = 1;
+  int32 idOffer = 2;
+  int32 idUser = 3;
   stateEnum state = 4;
 }
 

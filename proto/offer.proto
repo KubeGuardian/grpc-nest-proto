@@ -14,7 +14,7 @@ service OfferService {
 // Create Offer
 
 message AddRequest {
-  int32 idEnt = 1;
+  int32 idUser = 1;
   string topic = 2;
   string description = 3;
   bool availability = 4;
@@ -23,21 +23,21 @@ message AddRequest {
 message AddResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  int32 idOffer = 3;
 }
 
 // Get by offer id 
 
 message GetData {
-  int32 id = 1;
-  int32 idEnt = 2;
+  int32 idOffer = 1;
+  int32 idUser = 2;
   string topic = 3;
   string description = 4;
   bool availability = 5;
 }
 
 message GetRequest {
-  int32 id = 1;
+  int32 idOffer = 1;
 }
 
 message GetResponse {
@@ -49,15 +49,15 @@ message GetResponse {
 // search by entreprise id 
 
 message SearchData {
-  int32 id = 1;
-  int32 idEnt = 2;
+  int32 idOffer = 1;
+  int32 idUser = 2;
   string topic = 3;
   string description = 4;
   bool availability = 5;
 }
 
 message SearchRequest {
-  int32 idEnt = 1;
+  int32 idUser = 1;
 }
 
 message SearchResponse {
@@ -69,8 +69,8 @@ message SearchResponse {
 // List
 
 message ListData {
-  int32 id = 1;
-  int32 idEnt = 2;
+  int32 idOffer = 1;
+  int32 idUser = 2;
   string topic = 3;
   string description = 4;
   bool availability = 5;
@@ -88,31 +88,31 @@ message ListResponse {
 //Remove
 
 message RemoveRequest {
-  int32 id = 1;
+  int32 idOffer = 1;
 }
 
 message RemoveResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 id = 3;
+  int32 idOffer = 3;
 }
 
 // update 
 
 message updateData {
-  int32 id = 1;
-  int32 idEnt = 2;
+  int32 idOffer = 1;
+  int32 idUser = 2;
   string topic = 3;
   string description = 4;
   bool availability = 5;
 }
 
 message updateRequest {
-  int32 id = 1;
-  int32 idEnt = 2;
-  string topic = 3;
-  string description = 4;
-  bool availability = 5;
+  required int32 idOffer = 1;
+  optional int32 idUser = 2;
+  optional string topic = 3;
+  optional string description = 4;
+  optional bool availability = 5;
 }
 
 message updateResponse {
