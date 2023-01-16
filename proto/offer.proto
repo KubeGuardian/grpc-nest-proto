@@ -98,18 +98,6 @@ message RemoveResponse {
   int32 id = 3;
 }
 
-//Verify
-
-message VerifyRequest {
-  int32 id = 1;
-}
-
-message VerifyResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  bool verification = 3;
-}
-
 // update 
 
 message updateData {
