@@ -1,5 +1,4 @@
 syntax = "proto3";
-syntax = "proto3";
 
 package offer;
 
@@ -32,11 +31,13 @@ message GetData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool availability = 4;
+  bool state = 4;
 }
 
 message GetRequest {
   int32 id = 1;
+  int32 userId = 2;
+
 }
 
 message GetResponse {
@@ -45,35 +46,23 @@ message GetResponse {
   GetData data = 3;
 }
 
-// search by entreprise id 
 
-message SearchData {
-  int32 id = 1;
-  int32 offerId = 2;
-  int32 userId = 3;
-  bool availability = 4;
-}
-
-message SearchRequest {
-  SearchData 
-}
-
-message SearchResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  SearchData data = 3;
-}
-
-// List
+// LIST
 
 message ListData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool availability = 4;
+  bool state = 4;
 }
-
+message Criteria {
+  int32 id = 1;
+  int32 offerId = 2;
+  bool state = 3;
+}
 message ListRequest {
+  Critria criteria= 1;
+  int32 userId = 2;
 }
 
 message ListResponse {
@@ -100,14 +89,14 @@ message updateData {
   int32 id = 1;
   int32 offerId = 2;
   int32 userId = 3;
-  bool availability = 4;
+  bool state = 4;
 }
 
 message updateRequest {
   int32 id = 1;
   int32 offerId = 2;
   string userId = 3;
-  bool availability = 4;
+  bool state = 4;
 }
 
 message updateResponse {
