@@ -5,7 +5,7 @@ package application;
 service ApplicationService {
   rpc add (AddRequest) returns (AddResponse) {}
   rpc get (GetRequest) returns (GetResponse) {}
-  rpc list (ListRequest) returns (ListResponse) {}
+  rpc search (searchRequest) returns (searchResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
   rpc update (updateRequest) returns (updateResponse) {}
 }
@@ -18,8 +18,8 @@ enum stateEnum{
 // Create application
 
 message AddRequest {
-  int idOffer = 1;
-  int idUser = 2;
+  int32 idOffer = 1;
+  int32 idUser = 2;
 }
 
 message AddResponse {
@@ -69,7 +69,7 @@ message searchRequest {
 message searchResponse {
   int32 status = 1;
   repeated string error = 2;
-  repeated ListData data = 3;
+  repeated searchData data = 3;
 }
 
 //Remove
