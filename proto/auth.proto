@@ -9,12 +9,17 @@ service AuthService {
 }
 
 // Register
-
+enum roleEnum{
+       0 = "Pending";
+       1 = "Accepted";
+       2 = "Rejected";
+   }
+   
 message RegisterRequest {
   string email = 1;
   string password = 2;
   string name = 3;
-  string role = 4;
+  roleEnum role = 4;
   repeated string usefulLinks = 5;
 }
 
