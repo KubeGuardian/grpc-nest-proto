@@ -1,19 +1,117 @@
 syntax = "proto3";
+syntax = "proto3";
 
-package application;
+package offer;
 
-service ApplicationService {
-  rpc CreateApplication (CreateApplicationRequest) returns (CreateApplicationResponse) {}
+service OfferService {
+  rpc add (AddRequest) returns (AddResponse) {}
+  rpc get (GetRequest) returns (GetResponse) {}
+  rpc search (SearchRequest) returns (SearchResponse) {}
+  rpc list (ListRequest) returns (ListResponse) {}
+  rpc remove (RemoveRequest) returns (RemoveResponse) {}
+  rpc verify (VerifyRequest) returns (VerifyResponse) {}
+  rpc update (updateRequest) returns (updateResponse) {}
 }
 
-message CreateApplicationRequest {
-  int32 offerId = 1;
-  bool availability = 2;
-  int32 userId = 2;
+// Create application
+
+message AddRequest {
+  string offerId = 2;
+  string userId = 3;
 }
 
-message CreateApplicationResponse {
+message AddResponse {
   int32 status = 1;
   repeated string error = 2;
   int32 id = 3;
+}
+
+// Get by application id 
+
+message GetData {
+  int32 id = 1;
+  int32 offerId = 2;
+  int32 userId = 3;
+  bool availability = 4;
+}
+
+message GetRequest {
+  int32 id = 1;
+}
+
+message GetResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  GetData data = 3;
+}
+
+// search by entreprise id 
+
+message SearchData {
+  int32 id = 1;
+  int32 offerId = 2;
+  int32 userId = 3;
+  bool availability = 4;
+}
+
+message SearchRequest {
+  SearchData 
+}
+
+message SearchResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  SearchData data = 3;
+}
+
+// List
+
+message ListData {
+  int32 id = 1;
+  int32 offerId = 2;
+  int32 userId = 3;
+  bool availability = 4;
+}
+
+message ListRequest {
+}
+
+message ListResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  repeated ListData data = 3;
+}
+
+//Remove
+
+message RemoveRequest {
+  int32 id = 1;
+}
+
+message RemoveResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
+
+// update 
+
+message updateData {
+  int32 id = 1;
+  int32 offerId = 2;
+  int32 userId = 3;
+  bool availability = 4;
+}
+
+message updateRequest {
+  int32 id = 1;
+  int32 offerId = 2;
+  string userId = 3;
+  bool availability = 4;
+}
+
+message updateResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  updateData data = 3;
 }
