@@ -64,7 +64,7 @@ message Criteria {
   stateEnum state = 3;
 }
 message ListRequest {
-  Critria criteria= 1;
+  Criteria criteria= 1;
   int32 userId = 2;
 }
 
