@@ -110,6 +110,10 @@ message updateData {
 
 message updateRequest {
   int32 id = 1;
+  int32 idEnt = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
 }
 
 message updateResponse {
