@@ -5,9 +5,9 @@ package application;
 service ApplicationService {
   rpc addApp (AddRequestApp) returns (AddResponseApp) {}
   rpc getApp (GetRequestApp) returns (GetResponseApp) {}
-  rpc searchAppByCriteria (searchRequestApp) returns (searchResponseApp) {}
+  rpc searchAppByCriteria (SearchRequestApp) returns (SearchResponseApp) {}
   rpc removeApp (RemoveRequestApp) returns (RemoveResponseApp) {}
-  rpc updateApp (updateRequestApp) returns (updateResponseApp) {}
+  rpc updateApp (UpdateRequestApp) returns (UpdateResponseApp) {}
   rpc softDeleteApp (SoftDltRequestApp) returns (SoftDltResponseApp) {}
   rpc restoreApp (RestoreRequestApp) returns (RestoreResponseApp) {}
 }
@@ -54,24 +54,24 @@ message GetResponseApp {
 
 // search
 
-message searchDataApp {
+message SearchDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
   stateEnum state = 4;
 }
 
-message searchRequestApp {
+message SearchRequestApp {
   optional int32 idApp = 1;
   optional int32 idOffer = 2;
   optional stateEnum state = 3;
   int32 idUser = 4;
 }
 
-message searchResponseApp {
+message SearchResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  repeated searchDataApp data = 3;
+  repeated SearchDataApp data = 3;
 }
 
 //Remove
@@ -88,21 +88,21 @@ message RemoveResponseApp {
 
 // update 
 
-message updateDataApp {
+message UpdateDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
   stateEnum state = 4;
 }
 
-message updateRequestApp {
+message UpdateRequestApp {
   int32 idApp = 1;
   optional int32 idOffer = 2;
   int32 idUser = 3;
   optional stateEnum state = 4;
 }
 
-message updateResponseApp {
+message UpdateResponseApp {
   int32 status = 1;
   repeated string error = 2;
   updateDataApp data = 3;
