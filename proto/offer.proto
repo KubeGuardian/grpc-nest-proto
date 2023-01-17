@@ -137,7 +137,6 @@ message SoftDltResponseOffer {
 //restore
 
 message RestoreDataOffer {
-  int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
   string description = 4;
