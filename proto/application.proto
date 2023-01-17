@@ -98,7 +98,7 @@ message updateData {
 message updateRequest {
   int32 idApp = 1;
   optional int32 idOffer = 2;
-  optional int32 idUser = 3;
+  int32 idUser = 3;
   optional stateEnum state = 4;
 }
 
