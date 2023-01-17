@@ -105,7 +105,7 @@ message UpdateRequestApp {
 message UpdateResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  updateDataApp data = 3;
+  UpdateDataApp data = 3;
 }
 
 
