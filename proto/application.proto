@@ -131,7 +131,7 @@ message RestoreDataApp {
 }
 
 message RestoreRequestApp {
-  int32 ipApp = 1;
+  int32 idApp = 1;
 }
 
 message RestoreResponseApp {
