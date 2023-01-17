@@ -109,13 +109,13 @@ message updateResponse {
 
 //soft delete
 message SoftDltRequest {
-  int32 ipApp = 1;
+  int32 idApp = 1;
 }
 
 message SoftDltResponse {
   int32 status = 1;
   repeated string error = 2;
-  int32 ipApp = 3;
+  int32 idApp = 3;
 }
 
 //restore
