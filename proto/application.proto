@@ -77,7 +77,8 @@ message SearchResponseApp {
 //Remove
 
 message RemoveRequestApp {
-  int32 idUser = 1;
+  int32 idApp = 1;
+  int32 idUser = 2;
 }
 
 message RemoveResponseApp {
