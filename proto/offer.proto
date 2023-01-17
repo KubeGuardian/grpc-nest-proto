@@ -111,7 +111,10 @@ message UpdateDataOffer {
 
 message UpdateRequestOffer {
   int32 idOffer = 1;
-   UpdateDataOffer data = 2;
+  optional int32 idUser = 2;
+  optional string topic = 3;
+  optional string description = 4;
+  optional bool availability = 5;
 }
 
 message UpdateResponseOffer {
