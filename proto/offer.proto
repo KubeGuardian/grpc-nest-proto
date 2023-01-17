@@ -5,10 +5,12 @@ package offer;
 service OfferService {
   rpc add (AddRequest) returns (AddResponse) {}
   rpc getById (GetRequest) returns (GetResponse) {}
-  rpc search (SearchRequest) returns (SearchResponse) {}
+  rpc searchByEmployer (SearchRequest) returns (SearchResponse) {}
   rpc list (ListRequest) returns (ListResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
-  rpc update (updateRequest) returns (updateResponse) {}
+  rpc update (UpdateRequest) returns (UpdateResponse) {}
+  rpc softDelete (SoftDltRequest) returns (SoftDltResponse) {}
+  rpc restore (RestoreRequest) returns (RestoreResponse) {}
 }
 
 // Create Offer
@@ -99,7 +101,7 @@ message RemoveResponse {
 
 // update 
 
-message updateData {
+message UpdateData {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -107,7 +109,7 @@ message updateData {
   bool availability = 5;
 }
 
-message updateRequest {
+message UpdateRequest {
   int32 idOffer = 1;
   optional int32 idUser = 2;
   optional string topic = 3;
@@ -115,11 +117,43 @@ message updateRequest {
   optional bool availability = 5;
 }
 
-message updateResponse {
+message UpdateResponse {
   int32 status = 1;
   repeated string error = 2;
   updateData data = 3;
 }
+
+//soft delete
+message SoftDltRequest {
+  int32 idOffer = 1;
+}
+
+message SoftDltResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 idOffer = 3;
+}
+
+//restore
+
+message RestoreData {
+  int32 idOffer = 1;
+  int32 idUser = 2;
+  string topic = 3;
+  string description = 4;
+  bool availability = 5;
+}
+
+message RestoreRequest {
+  int32 idOffer = 1;
+}
+
+message RestoreResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  RestoreData data = 3;
+}
+
 
 
 
