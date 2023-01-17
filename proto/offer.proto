@@ -120,7 +120,7 @@ message UpdateRequestOffer {
 message UpdateResponseOffer {
   int32 status = 1;
   repeated string error = 2;
-  updateDataOffer data = 3;
+  UpdateDataOffer data = 3;
 }
 
 //soft delete
