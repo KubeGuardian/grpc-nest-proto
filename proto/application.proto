@@ -95,9 +95,9 @@ message updateData {
 
 message updateRequest {
   int32 idApp = 1;
-  int32 idOffer = 2;
-  int32 idUser = 3;
-  stateEnum state = 4;
+  optional int32 idOffer = 2;
+  optional int32 idUser = 3;
+  optional stateEnum state = 4;
 }
 
 message updateResponse {
@@ -105,3 +105,40 @@ message updateResponse {
   repeated string error = 2;
   updateData data = 3;
 }
+
+
+//soft delete
+message SoftDltRequest {
+  int32 ipApp = 1;
+}
+
+message SoftDltResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 ipApp = 3;
+}
+
+//restore
+
+message RestoreData {
+  int32 idApp = 1;
+  int32 idOffer = 2;
+  int32 idUser = 3;
+  stateEnum state = 4;
+ 
+}
+
+message RestoreRequest {
+  int32 ipApp = 1;
+}
+
+message RestoreResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  RestoreData data = 3;
+}
+
+
+
+
+
