@@ -3,26 +3,26 @@ syntax = "proto3";
 package offer;
 
 service OfferService {
-  rpc add (AddRequest) returns (AddResponse) {}
-  rpc getById (GetRequest) returns (GetResponse) {}
-  rpc searchByEmployer (SearchRequest) returns (SearchResponse) {}
-  rpc list (ListRequest) returns (ListResponse) {}
-  rpc remove (RemoveRequest) returns (RemoveResponse) {}
-  rpc update (UpdateRequest) returns (UpdateResponse) {}
-  rpc softDelete (SoftDltRequest) returns (SoftDltResponse) {}
-  rpc restore (RestoreRequest) returns (RestoreResponse) {}
+  rpc addOffer (AddRequestOffer) returns (AddResponseOffer) {}
+  rpc getOfferById (GetRequestOffer) returns (GetResponseOffer) {}
+  rpc searchOfferByEmployer (SearchRequestOffer) returns (SearchResponseOffer) {}
+  rpc listOffers (ListRequestOffer) returns (ListResponseOffer) {}
+  rpc removeOffer (RemoveRequestOffer) returns (RemoveResponseOffer) {}
+  rpc updateOffer (UpdateRequestOffer) returns (UpdateResponseOffer) {}
+  rpc softDeleteOffer (SoftDltRequestOffer) returns (SoftDltResponseOffer) {}
+  rpc restoreOffer (RestoreRequestOffer) returns (RestoreResponseOffer) {}
 }
 
 // Create Offer
 
-message AddRequest {
+message AddRequestOffer {
   int32 idUser = 1;
   string topic = 2;
   string description = 3;
   bool availability = 4;
 }
 
-message AddResponse {
+message AddResponseOffer {
   int32 status = 1;
   repeated string error = 2;
   int32 idOffer = 3;
@@ -30,7 +30,7 @@ message AddResponse {
 
 // Get by offer id 
 
-message GetData {
+message GetDataOffer {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -38,19 +38,19 @@ message GetData {
   bool availability = 5;
 }
 
-message GetRequest {
+message GetRequestOffer {
   int32 idOffer = 1;
 }
 
-message GetResponse {
+message GetResponseOffer {
   int32 status = 1;
   repeated string error = 2;
-  GetData data = 3;
+  GetDataOffer data = 3;
 }
 
 // search by entreprise id 
 
-message SearchData {
+message SearchDataOffer {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -58,19 +58,19 @@ message SearchData {
   bool availability = 5;
 }
 
-message SearchRequest {
+message SearchRequestOffer {
   int32 idUser = 1;
 }
 
-message SearchResponse {
+message SearchResponseOffer {
   int32 status = 1;
   repeated string error = 2;
-  repeated SearchData data = 3;
+  repeated SearchDataOffer data = 3;
 }
 
 // List
 
-message ListData {
+message ListDataOffer {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -78,22 +78,22 @@ message ListData {
   bool availability = 5;
 }
 
-message ListRequest {
+message ListRequestOffer {
 }
 
-message ListResponse {
+message ListResponseOffer {
   int32 status = 1;
   repeated string error = 2;
-  repeated ListData data = 3;
+  repeated ListDataOffer data = 3;
 }
 
 //Remove
 
-message RemoveRequest {
+message RemoveRequestOffer {
   int32 idOffer = 1;
 }
 
-message RemoveResponse {
+message RemoveResponseOffer {
   int32 status = 1;
   repeated string error = 2;
   int32 idOffer = 3;
@@ -101,7 +101,7 @@ message RemoveResponse {
 
 // update 
 
-message UpdateData {
+message UpdateDataOffer {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -109,7 +109,7 @@ message UpdateData {
   bool availability = 5;
 }
 
-message UpdateRequest {
+message UpdateRequestOffer {
   int32 idOffer = 1;
   optional int32 idUser = 2;
   optional string topic = 3;
@@ -117,18 +117,18 @@ message UpdateRequest {
   optional bool availability = 5;
 }
 
-message UpdateResponse {
+message UpdateResponseOffer {
   int32 status = 1;
   repeated string error = 2;
   updateData data = 3;
 }
 
 //soft delete
-message SoftDltRequest {
+message SoftDltRequestOffer {
   int32 idOffer = 1;
 }
 
-message SoftDltResponse {
+message SoftDltResponseOffer {
   int32 status = 1;
   repeated string error = 2;
   int32 idOffer = 3;
@@ -136,7 +136,7 @@ message SoftDltResponse {
 
 //restore
 
-message RestoreData {
+message RestoreDataOffer {
   int32 idOffer = 1;
   int32 idUser = 2;
   string topic = 3;
@@ -144,14 +144,14 @@ message RestoreData {
   bool availability = 5;
 }
 
-message RestoreRequest {
+message RestoreRequestOffer {
   int32 idOffer = 1;
 }
 
-message RestoreResponse {
+message RestoreResponseOffer {
   int32 status = 1;
   repeated string error = 2;
-  RestoreData data = 3;
+  RestoreDataOffer data = 3;
 }
 
 

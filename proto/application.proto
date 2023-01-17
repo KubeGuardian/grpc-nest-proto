@@ -3,13 +3,13 @@ syntax = "proto3";
 package application;
 
 service ApplicationService {
-  rpc add (AddRequest) returns (AddResponse) {}
-  rpc get (GetRequest) returns (GetResponse) {}
-  rpc search (searchRequest) returns (searchResponse) {}
-  rpc remove (RemoveRequest) returns (RemoveResponse) {}
-  rpc update (updateRequest) returns (updateResponse) {}
-  rpc softDelete (SoftDltRequest) returns (SoftDltResponse) {}
-  rpc restore (RestoreRequest) returns (RestoreResponse) {}
+  rpc addApp (AddRequestApp) returns (AddResponseApp) {}
+  rpc getApp (GetRequestApp) returns (GetResponseApp) {}
+  rpc searchAppByCriteria (searchRequestApp) returns (searchResponseApp) {}
+  rpc removeApp (RemoveRequestApp) returns (RemoveResponseApp) {}
+  rpc updateApp (updateRequestApp) returns (updateResponseApp) {}
+  rpc softDeleteApp (SoftDltRequestApp) returns (SoftDltResponseApp) {}
+  rpc restoreApp (RestoreRequestApp) returns (RestoreResponseApp) {}
 }
 //enum 
 enum stateEnum{
@@ -19,12 +19,12 @@ enum stateEnum{
    }
 // Create application
 
-message AddRequest {
+message AddRequestApp {
   int32 idOffer = 1;
   int32 idUser = 2;
 }
 
-message AddResponse {
+message AddResponseApp {
   int32 status = 1;
   repeated string error = 2;
   int32 idApp = 3;
@@ -32,20 +32,20 @@ message AddResponse {
 
 // Get by application id 
 
-message GetData {
+message GetDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
   stateEnum state = 4;
 }
 
-message GetRequest {
+message GetRequestApp {
   int32 idApp = 1;
   int32 idUser = 2;
 
 }
 
-message GetResponse {
+message GetResponseApp {
   int32 status = 1;
   repeated string error = 2;
   GetData data = 3;
@@ -54,33 +54,33 @@ message GetResponse {
 
 // search
 
-message searchData {
+message searchDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
   stateEnum state = 4;
 }
 
-message searchRequest {
+message searchRequestApp {
   optional int32 idApp = 1;
   optional int32 idOffer = 2;
   optional stateEnum state = 3;
   int32 idUser = 4;
 }
 
-message searchResponse {
+message searchResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  repeated searchData data = 3;
+  repeated searchDataApp data = 3;
 }
 
 //Remove
 
-message RemoveRequest {
+message RemoveRequestApp {
   int32 idUser = 1;
 }
 
-message RemoveResponse {
+message RemoveResponseApp {
   int32 status = 1;
   repeated string error = 2;
   int32 idApp = 3;
@@ -88,21 +88,21 @@ message RemoveResponse {
 
 // update 
 
-message updateData {
+message updateDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
   stateEnum state = 4;
 }
 
-message updateRequest {
+message updateRequestApp {
   int32 idApp = 1;
   optional int32 idOffer = 2;
   int32 idUser = 3;
   optional stateEnum state = 4;
 }
 
-message updateResponse {
+message updateResponseApp {
   int32 status = 1;
   repeated string error = 2;
   updateData data = 3;
@@ -110,11 +110,11 @@ message updateResponse {
 
 
 //soft delete
-message SoftDltRequest {
+message SoftDltRequestApp {
   int32 idApp = 1;
 }
 
-message SoftDltResponse {
+message SoftDltResponseApp {
   int32 status = 1;
   repeated string error = 2;
   int32 idApp = 3;
@@ -122,7 +122,7 @@ message SoftDltResponse {
 
 //restore
 
-message RestoreData {
+message RestoreDataApp {
   int32 idApp = 1;
   int32 idOffer = 2;
   int32 idUser = 3;
@@ -130,14 +130,14 @@ message RestoreData {
  
 }
 
-message RestoreRequest {
+message RestoreRequestApp {
   int32 ipApp = 1;
 }
 
-message RestoreResponse {
+message RestoreResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  RestoreData data = 3;
+  RestoreDataApp data = 3;
 }
 
 
