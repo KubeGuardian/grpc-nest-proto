@@ -48,7 +48,7 @@ message GetRequestApp {
 message GetResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  GetData data = 3;
+  GetDataApp data = 3;
 }
 
 
@@ -105,7 +105,7 @@ message updateRequestApp {
 message updateResponseApp {
   int32 status = 1;
   repeated string error = 2;
-  updateData data = 3;
+  updateDataApp data = 3;
 }
 
 
