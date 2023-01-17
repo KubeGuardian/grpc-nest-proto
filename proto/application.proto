@@ -8,6 +8,8 @@ service ApplicationService {
   rpc search (searchRequest) returns (searchResponse) {}
   rpc remove (RemoveRequest) returns (RemoveResponse) {}
   rpc update (updateRequest) returns (updateResponse) {}
+  rpc softDelete (SoftDltRequest) returns (SoftDltResponse) {}
+  rpc restore (RestoreRequest) returns (RestoreResponse) {}
 }
 //enum 
 enum stateEnum{
