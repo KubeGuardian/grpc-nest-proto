@@ -113,6 +113,7 @@ message UpdateResponseApp {
 //soft delete
 message SoftDltRequestApp {
   int32 idApp = 1;
+  int32 idUser = 2;
 }
 
 message SoftDltResponseApp {
@@ -133,6 +134,7 @@ message RestoreDataApp {
 
 message RestoreRequestApp {
   int32 idApp = 1;
+  int32 idUser =2;
 }
 
 message RestoreResponseApp {
